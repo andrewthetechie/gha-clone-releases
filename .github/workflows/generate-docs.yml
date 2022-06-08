@@ -15,4 +15,4 @@ jobs:
           node-version: 16
       - uses: actions/checkout@v3
       - name: Run doc generation
-        uses: npalm/action-docs-action@v1
+        uses: npalm/action-docs-action@v1.2.0
