@@ -25,7 +25,7 @@ def main():
             target_commitish=target,
         )
         added_releases.append(release.tag_name)
-    actions_toolkit.set_output("added_releases", ",".join(added_releases))
+    actions_toolkit.set_output("addedReleases", ",".join(added_releases))
 
 
 if __name__ == "__main__":
