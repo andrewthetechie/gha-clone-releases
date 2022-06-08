@@ -16,3 +16,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run doc generation
         uses: npalm/action-docs-action@v1.2.0
+      - name: Commit doc changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "docs: automated doc update"
+          file_pattern: README.md
