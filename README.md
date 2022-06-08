@@ -37,8 +37,6 @@ jobs:
           repo: andrewthetechie/andrewthetechie:
 ```
 
-### Inputs
-
 <!-- action-docs-inputs -->
 ## Inputs
 
@@ -49,11 +47,7 @@ jobs:
 | toketargetn | Target for new tags/releases in this repo | `false` |  |
 
 
-
 <!-- action-docs-inputs -->
-
-
-### Outputs
 
 <!-- action-docs-outputs -->
 ## Outputs
