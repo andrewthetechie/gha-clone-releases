@@ -2,7 +2,7 @@ import os
 
 from actions_toolkit import core as actions_toolkit
 from github import Github
-from github.Repository import Repository
+from github.GithubException import GithubException
 
 
 def main():
@@ -24,14 +24,17 @@ def main():
 
     for release in set(src_releases) - set(this_releases):
         actions_toolkit.info(f"Adding {release.tag_name} to {this_repo_str}")
-        this_repo.create_git_release(
-            release.tag_name,
-            release.title,
-            release.body,
-            release.prerelease,
-            target_commitish=target,
-        )
-        added_releases.append(release.tag_name)
+        try:
+            this_repo.create_git_release(
+                release.tag_name,
+                release.title,
+                release.body,
+                release.prerelease,
+                target_commitish=target,
+            )
+            added_releases.append(release.tag_name)
+        except GithubException as exc:
+            actions_toolkit.error(f"Error while adding a release for {release.tag_name}. {exc}")
     actions_toolkit.set_output("addedReleases", ",".join(added_releases))
 
 
