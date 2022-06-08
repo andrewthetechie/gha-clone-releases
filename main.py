@@ -26,7 +26,7 @@ def main():
         actions_toolkit.info(f"Adding {release.tag_name} to {this_repo_str}")
         try:
             this_repo.create_git_release(
-                release.title,
+                release.tag_name,
                 release.title,
                 release.body,
                 release.prerelease,
