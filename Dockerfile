@@ -1,9 +1,11 @@
-FROM python:3-slim AS builder
-ADD . /app
+# Distroless runs python 3.9.2
+FROM python:3.9.2-slim AS builder
+ADD Docker/builder/rootfs /
+ADD main.py /app/main.py
 WORKDIR /app
 
 # We are installing a dependency here directly into our app source dir
-RUN pip install --target=/app requests
+RUN pip install --target=/app -r /requirements.txt
 
 # A distroless container image with Python and some basics like SSL certificates
 # https://github.com/GoogleContainerTools/distroless
