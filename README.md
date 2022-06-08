@@ -45,6 +45,9 @@ jobs:
 | token | Github token | `false` |  |
 | repo | Soiurce repo to clone from | `false` |  |
 | target | Target for new tags/releases in this repo | `false` |  |
+| skip_draft | Skip draft releases | `false` | false |
+| skip_prerelease | Skip Prereleases | `false` | false |
+| dry_run | If true, we'll just output what releases we would have made but not actually make releases | `false` | false |
 
 
 
