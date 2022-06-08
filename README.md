@@ -47,6 +47,7 @@ jobs:
 | target | Target for new tags/releases in this repo | `false` |  |
 | skip_draft | Skip draft releases | `false` | false |
 | skip_prerelease | Skip Prereleases | `false` | false |
+| limit | A limit of how many releases to add on a single run. Good for not overwhelming CI systems | `false` | 0 |
 | dry_run | If true, we'll just output what releases we would have made but not actually make releases | `false` | false |
 
 
