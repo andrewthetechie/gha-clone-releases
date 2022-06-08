@@ -42,8 +42,8 @@ jobs:
 
 | parameter | description | required | default |
 | - | - | - | - |
-| token | Github token | `false` |  |
-| repo | Soiurce repo to clone from | `false` |  |
+| token | Github token | `true` |  |
+| repo | Soiurce repo to clone from | `true` |  |
 | target | Target for new tags/releases in this repo | `false` |  |
 | skip_draft | Skip draft releases | `false` | false |
 | skip_prerelease | Skip Prereleases | `false` | false |
