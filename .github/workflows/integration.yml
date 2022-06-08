@@ -7,12 +7,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Checkout
-      - name: Get Branch Name
-        id: getbranchname
-        run: echo ::set-output name=branch::${GITHUB_REF#refs/*/}
       - name: Test action
         id: test-action
-        uses: andrewthetechie/gha-clone-releases@${{ steps.getbranchname.outputs.branch }}
+        uses: andrewthetechie/gha-clone-releases@${{ github.ref_name }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repo: andrewthetechie/gha-clone-releases
