@@ -44,7 +44,7 @@ jobs:
 | - | - | - | - |
 | token | Github token | `false` |  |
 | repo | Soiurce repo to clone from | `false` |  |
-| toketargetn | Target for new tags/releases in this repo | `false` |  |
+| target | Target for new tags/releases in this repo | `false` |  |
 
 
 
