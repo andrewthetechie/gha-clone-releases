@@ -1,5 +1,9 @@
 name: Integration Test
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 jobs:
   integration-testing:
     name: Integration Testing
@@ -9,7 +13,8 @@ jobs:
         name: Checkout
       - name: Test action
         id: test-action
-        uses: andrewthetechie/gha-clone-releases@main
+        # test with the local checkout of the action
+        uses: ./
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repo: andrewthetechie/gha-clone-releases
