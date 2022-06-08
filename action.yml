@@ -1,4 +1,4 @@
-name: "Clone Releases"
+name: "Clone Github Releases"
 description: "Clone the releases in one repo to this one"
 author: "Andrew Herrington"
 inputs:
