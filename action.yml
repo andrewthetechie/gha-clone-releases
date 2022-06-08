@@ -1,13 +1,17 @@
-name: "Python Container Action Template"
-description: "Get started with Python Container actions"
-author: "Jacob Tomlinson"
+name: "Clone Releases"
+description: "Clone the releases in one repo to this one"
+author: "Andrew Herrington"
 inputs:
-  myInput:
-    description: "Input to use"
-    default: "world"
+  token:
+    description: "Github token"
+  repo:
+    description: "Soiurce repo to clone from"
+  toketargetn:
+    description: "Target for new tags/releases in this repo"
+    default: ""
 outputs:
-  myOutput:
-    description: "Output from the action"
+  addedReleases:
+    description: "Comma separated list of all the releases created"
 runs:
   using: "docker"
   image: "Dockerfile"
