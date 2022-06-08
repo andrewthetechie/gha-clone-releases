@@ -15,6 +15,9 @@ inputs:
   skip_prerelease:
     description: "Skip Prereleases"
     default: False
+  limit:
+    description: "A limit of how many releases to add on a single run. Good for not overwhelming CI systems"
+    default: 0
   dry_run:
     description: "If true, we'll just output what releases we would have made but not actually make releases"
     default: False

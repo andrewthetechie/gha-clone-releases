@@ -18,11 +18,17 @@ class ReleaseWrapper:
         return hash(self.release.title)
 
 
-def get_misisng_releases(source_releases, dest_releases) -> List[GitRelease]:
+def get_missing_releases(source_releases, dest_releases) -> List[GitRelease]:
     """Compares two sets of releases and returns a list of releases in the source that are not in the destination"""
+
+    def sort_key(release: GitRelease):
+        return release.title
+
     source_releases = {ReleaseWrapper(release) for release in source_releases}
     dest_releases = {ReleaseWrapper(release) for release in dest_releases}
-    return [release.release for release in list(source_releases - dest_releases)]
+    releases = [release.release for release in list(source_releases - dest_releases)]
+    releases.sort(key=lambda release: release.published_at, reverse=True)
+    return releases
 
 
 def main():
@@ -34,6 +40,8 @@ def main():
     src_repo_str = actions_toolkit.get_input("repo", required=True)
     target = actions_toolkit.get_input("target", required=False)
     dry_run = actions_toolkit.get_input("dry_run", required=False).lower() == "true"
+    limit_str = actions_toolkit.get_input("limit", required=False).lower()
+    limit = int(limit_str) if limit_str != "" and limit_str.isnumeric() else 0
     skip_draft = actions_toolkit.get_input("skip_draft", required=False).lower() == "true"
     skip_prerelease = actions_toolkit.get_input("skip_prerelease", required=False).lower() == "true"
     this_repo_str = os.environ.get("GITHUB_REPOSITORY")
@@ -46,17 +54,20 @@ def main():
     added_releases = []
     actions_toolkit.info(f"{src_repo_str} has {src_releases.totalCount} releases")
     actions_toolkit.info(f"{this_repo_str} has {this_releases.totalCount} releases")
-    for release in get_misisng_releases(src_releases, this_releases):
+
+    for count, release in enumerate(get_missing_releases(src_releases, this_releases)):
+        if count >= limit and limit != 0:
+            break
         if skip_draft and release.draft:
             actions_toolkit.info(f"Skipping {release.tag_name} due to skip_draft")
             continue
         if skip_prerelease and release.prerelease:
             actions_toolkit.info(f"Skipping {release.tag_name} due to skip_prerelease")
             continue
-        actions_toolkit.info(f"Adding {release.tag_name} to {this_repo_str}")
         if dry_run:
             actions_toolkit.info(f"Would have added {release.tag_name} to {this_repo_str} with title {release.title}")
             continue
+        actions_toolkit.info(f"Adding {release.tag_name} to {this_repo_str}")
         try:
             this_repo.create_git_release(
                 release.tag_name,
