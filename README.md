@@ -4,6 +4,14 @@
 [![Actions Status](https://github.com/andrewthetechie/gha-clone-releases/workflows/Lint/badge.svg)](https://github.com/andrewthetechie/gha-clone-releases/actions)
 [![Actions Status](https://github.com/andrewthetechie/gha-clone-releases/workflows/Integration%20Test/badge.svg)](https://github.com/andrewthetechie/gha-clone-releases/actions)
 
+<!-- action-docs-description -->
+## Description
+
+Clone the releases in one repo to this one
+
+
+<!-- action-docs-description -->
+
 This github action can clone releases from a source repo to your repo. This is useful if you are using a repo to build container
 images for an upstream container. You can run this action on a cron schedule to pick up new releases and build new containers.
 
@@ -26,19 +34,38 @@ jobs:
         # Put an example of your mandatory inputs here
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          repo: andrewthetechie/andrewthetechie
+          repo: andrewthetechie/andrewthetechie:
 ```
 
-### Inputs
+<!-- action-docs-inputs -->
+## Inputs
 
-| Input                 | Description                                                                      |
-| --------------------- | -------------------------------------------------------------------------------- |
-| `token`               | A github token that can publish releases to this repo                            |
-| `repo`                | The repository to clone releases from.                                           |
-| `target` _(optional)_ | Optional, a target for your releases, default will be your default branch's HEAD |
+| parameter | description | required | default |
+| - | - | - | - |
+| token | Github token | `false` |  |
+| repo | Soiurce repo to clone from | `false` |  |
+| target | Target for new tags/releases in this repo | `false` |  |
 
-### Outputs
 
-| Output          | Description                                           |
-| --------------- | ----------------------------------------------------- |
-| `addedReleases` | A comma separated list of all the releases we created |
+
+<!-- action-docs-inputs -->
+
+<!-- action-docs-outputs -->
+## Outputs
+
+| parameter | description |
+| - | - |
+| addedReleases | Comma separated list of all the releases created |
+
+
+
+<!-- action-docs-outputs -->
+
+
+<!-- action-docs-runs -->
+## Runs
+
+This action is a `docker` action.
+
+
+<!-- action-docs-runs -->

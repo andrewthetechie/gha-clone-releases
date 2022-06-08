@@ -6,7 +6,7 @@ inputs:
     description: "Github token"
   repo:
     description: "Soiurce repo to clone from"
-  toketargetn:
+  target:
     description: "Target for new tags/releases in this repo"
     default: ""
 outputs:
