@@ -9,7 +9,7 @@ jobs:
         name: Checkout
       - name: Test action
         id: test-action
-        uses: andrewthetechie/gha-clone-releases@${{ env.ref_name }}
+        uses: andrewthetechie/gha-clone-releases@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repo: andrewthetechie/gha-clone-releases
