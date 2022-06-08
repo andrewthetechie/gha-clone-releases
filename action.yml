@@ -9,6 +9,15 @@ inputs:
   target:
     description: "Target for new tags/releases in this repo"
     default: ""
+  skip_draft:
+    description: "Skip draft releases"
+    default: False
+  skip_prerelease:
+    description: "Skip Prereleases"
+    default: False
+  dry_run:
+    description: "If true, we'll just output what releases we would have made but not actually make releases"
+    default: False
 outputs:
   addedReleases:
     description: "Comma separated list of all the releases created"
