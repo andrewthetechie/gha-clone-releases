@@ -5,6 +5,12 @@
 [![Actions Status](https://github.com/andrewthetechie/gha-clone-releases/workflows/Integration%20Test/badge.svg)](https://github.com/andrewthetechie/gha-clone-releases/actions)
 
 <!-- action-docs-description -->
+## Description
+
+Clone the releases in one repo to this one
+
+
+<!-- action-docs-description -->
 
 This github action can clone releases from a source repo to your repo. This is useful if you are using a repo to build container
 images for an upstream container. You can run this action on a cron schedule to pick up new releases and build new containers.
@@ -34,11 +40,37 @@ jobs:
 ### Inputs
 
 <!-- action-docs-inputs -->
+## Inputs
+
+| parameter | description | required | default |
+| - | - | - | - |
+| token | Github token | `false` |  |
+| repo | Soiurce repo to clone from | `false` |  |
+| toketargetn | Target for new tags/releases in this repo | `false` |  |
+
+
+
+<!-- action-docs-inputs -->
 
 
 ### Outputs
 
 <!-- action-docs-outputs -->
+## Outputs
+
+| parameter | description |
+| - | - |
+| addedReleases | Comma separated list of all the releases created |
+
+
+
+<!-- action-docs-outputs -->
+
+
+<!-- action-docs-runs -->
+## Runs
+
+This action is a `docker` action.
 
 
 <!-- action-docs-runs -->
