@@ -25,7 +25,7 @@ jobs:
         uses: andrewthetechie/gha-clone-releases@v1
         # Put an example of your mandatory inputs here
         with:
-          token: ${{ secrets.GithubToken }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           repo: andrewthetechie/andrewthetechie
 ```
 
