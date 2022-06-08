@@ -4,8 +4,10 @@ author: "Andrew Herrington"
 inputs:
   token:
     description: "Github token"
+    required: true
   repo:
     description: "Soiurce repo to clone from"
+    required: true
   target:
     description: "Target for new tags/releases in this repo"
     default: ""
@@ -27,3 +29,6 @@ outputs:
 runs:
   using: "docker"
   image: "Dockerfile"
+branding:
+  icon: 'copy'
+  color: 'blue'
