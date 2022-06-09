@@ -6,7 +6,7 @@ inputs:
     description: "Github token"
     required: true
   repo:
-    description: "Soiurce repo to clone from"
+    description: "Source repo to clone from"
     required: true
   target:
     description: "Target for new tags/releases in this repo"
@@ -21,11 +21,18 @@ inputs:
     description: "A limit of how many releases to add on a single run. Good for not overwhelming CI systems"
     default: 0
   dry_run:
-    description: "If true, we'll just output what releases we would have made but not actually make releases"
+    description: "If true, just output what releases would have been made but do not make releases"
     default: False
+  min_version:
+    description: "If set, we will ignore any releases from the source repo that are less than min_version"
+    default: ""
 outputs:
   addedReleases:
     description: "Comma separated list of all the releases created"
+  addedReleasesCount:
+    description: "Count of releases added"
+  skippedReleasesCount:
+    description: "Count of releases skipped"
 runs:
   using: "docker"
   image: "Dockerfile"

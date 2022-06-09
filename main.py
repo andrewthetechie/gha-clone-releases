@@ -5,6 +5,8 @@ from actions_toolkit import core as actions_toolkit
 from github import Github
 from github.GithubException import GithubException
 from github.GitRelease import GitRelease
+from packaging.version import InvalidVersion
+from packaging.version import parse as parse_version
 
 
 class ReleaseWrapper:
@@ -18,14 +20,30 @@ class ReleaseWrapper:
         return hash(self.release.title)
 
 
-def get_missing_releases(source_releases, dest_releases) -> List[GitRelease]:
+def exceeds_min_version(release_version: str, min_version: str):
+    """Checks if a version exceeds a minimum version using packaging.version.parse"""
+    if min_version != "":
+        try:
+            result = parse_version(release_version) > parse_version(min_version)
+        except InvalidVersion as exc:
+            actions_toolkit.error(f"{release_version} Is an invalid version {exc}")
+            return False
+        actions_toolkit.debug(f"{release_version} exceeds_min_version result {result}")
+        return result
+    return True
+
+
+def get_missing_releases(source_releases, dest_releases, min_version) -> List[GitRelease]:
     """Compares two sets of releases and returns a list of releases in the source that are not in the destination"""
 
     def sort_key(release: GitRelease):
         return release.title
 
-    source_releases = {ReleaseWrapper(release) for release in source_releases}
+    source_releases = {
+        ReleaseWrapper(release) for release in source_releases if exceeds_min_version(release.title, min_version)
+    }
     dest_releases = {ReleaseWrapper(release) for release in dest_releases}
+
     releases = [release.release for release in list(source_releases - dest_releases)]
     releases.sort(key=lambda release: release.published_at, reverse=True)
     return releases
@@ -44,6 +62,7 @@ def main():
     limit = int(limit_str) if limit_str != "" and limit_str.isnumeric() else 0
     skip_draft = actions_toolkit.get_input("skip_draft", required=False).lower() == "true"
     skip_prerelease = actions_toolkit.get_input("skip_prerelease", required=False).lower() == "true"
+    minimum_version = actions_toolkit.get_input("min_version", required=False)
     this_repo_str = os.environ.get("GITHUB_REPOSITORY")
 
     g = Github(token)
@@ -52,17 +71,23 @@ def main():
     this_repo = g.get_repo(this_repo_str)
     this_releases = this_repo.get_releases()
     added_releases = []
-    actions_toolkit.info(f"{src_repo_str} has {src_releases.totalCount} releases")
-    actions_toolkit.info(f"{this_repo_str} has {this_releases.totalCount} releases")
+    actions_toolkit.debug(f"{src_repo_str} has {src_releases.totalCount} releases")
+    actions_toolkit.debug(f"{this_repo_str} has {this_releases.totalCount} releases")
 
-    for count, release in enumerate(get_missing_releases(src_releases, this_releases)):
-        if count >= limit and limit != 0:
+    actions_toolkit.debug(f"Limit: {limit}")
+
+    skipped = 0
+    for count, release in enumerate(get_missing_releases(src_releases, this_releases, minimum_version)):
+        if count >= (limit + skipped) and limit != 0:
+            actions_toolkit.debug(f"Hit limit")
             break
         if skip_draft and release.draft:
-            actions_toolkit.info(f"Skipping {release.tag_name} due to skip_draft")
+            actions_toolkit.debug(f"Skipping {release.tag_name} due to skip_draft")
+            skipped += 1
             continue
         if skip_prerelease and release.prerelease:
-            actions_toolkit.info(f"Skipping {release.tag_name} due to skip_prerelease")
+            actions_toolkit.debug(f"Skipping {release.tag_name} due to skip_prerelease")
+            skipped += 1
             continue
         if dry_run:
             actions_toolkit.info(f"Would have added {release.tag_name} to {this_repo_str} with title {release.title}")
@@ -80,6 +105,8 @@ def main():
         except GithubException as exc:
             actions_toolkit.error(f"Error while adding a release for {release.tag_name}. {exc}")
     actions_toolkit.set_output("addedReleases", ",".join(added_releases))
+    actions_toolkit.set_output("skippedReleasesCount", skipped)
+    actions_toolkit.set_output("addedReleasesCount", len(added_releases))
 
 
 if __name__ == "__main__":
