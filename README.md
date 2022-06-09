@@ -43,12 +43,13 @@ jobs:
 | parameter | description | required | default |
 | - | - | - | - |
 | token | Github token | `true` |  |
-| repo | Soiurce repo to clone from | `true` |  |
+| repo | Source repo to clone from | `true` |  |
 | target | Target for new tags/releases in this repo | `false` |  |
 | skip_draft | Skip draft releases | `false` | false |
 | skip_prerelease | Skip Prereleases | `false` | false |
 | limit | A limit of how many releases to add on a single run. Good for not overwhelming CI systems | `false` | 0 |
-| dry_run | If true, we'll just output what releases we would have made but not actually make releases | `false` | false |
+| dry_run | If true, just output what releases would have been made but do not make releases | `false` | false |
+| min_version | If set, we will ignore any releases from the source repo that are less than min_version | `false` |  |
 
 
 
@@ -60,6 +61,8 @@ jobs:
 | parameter | description |
 | - | - |
 | addedReleases | Comma separated list of all the releases created |
+| addedReleasesCount | Count of releases added |
+| skippedReleasesCount | Count of releases skipped |
 
 
 
