@@ -20,4 +20,4 @@ jobs:
           repo: andrewthetechie/gha-clone-releases
       - name: Check outputs
         run: |
-          test "${{ steps.selftest.outputs.addedReleases }}" == ""
+          test "${{ steps.test-action.outputs.addedReleases }}" == ""
