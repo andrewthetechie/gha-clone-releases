@@ -20,4 +20,4 @@ setup-pre-commit:
 	pre-commit install
 
 build:
-	docker build -t gha-clone-releases .
+	docker build --platform linux/amd64 -t gha-clone-releases -f Docker/Dockerfile .
