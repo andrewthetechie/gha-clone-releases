@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        name: Checkout
+        # https://github.com/stefanzweifel/git-auto-commit-action#commits-made-by-this-action-do-not-trigger-new-workflow-runs
+        with:
+          token: ${{ secrets.THIS_PAT }}
       - name: Test action
         id: test-action
         # test with the local checkout of the action
