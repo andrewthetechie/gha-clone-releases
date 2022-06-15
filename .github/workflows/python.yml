@@ -10,5 +10,8 @@ jobs:
         with:
           python-version: "3.9.2"
       - uses: actions/checkout@v3
+        # https://github.com/stefanzweifel/git-auto-commit-action#commits-made-by-this-action-do-not-trigger-new-workflow-runs
+        with:
+          token: ${{ secrets.THIS_PAT }}
       - name: Run Pre-commit
         uses: pre-commit/action@v3.0.0
