@@ -13,5 +13,6 @@ jobs:
         # https://github.com/stefanzweifel/git-auto-commit-action#commits-made-by-this-action-do-not-trigger-new-workflow-runs
         with:
           token: ${{ secrets.THIS_PAT }}
+      - run: pip install -r requirements-dev.txt
       - name: Run Pre-commit
         uses: pre-commit/action@v3.0.0
