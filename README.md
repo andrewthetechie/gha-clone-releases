@@ -43,7 +43,8 @@ jobs:
 | parameter | description | required | default |
 | - | - | - | - |
 | token | Github token | `true` |  |
-| repo | Source repo to clone from | `true` |  |
+| src_repo | Source repo to clone from | `true` |  |
+| dest_repo | Destination repo to clone to, default is this repo | `false` |  |
 | target | Target for new tags/releases in this repo | `false` |  |
 | skip_draft | Skip draft releases | `false` | false |
 | skip_prerelease | Skip Prereleases | `false` | false |
