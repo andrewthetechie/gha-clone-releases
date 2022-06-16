@@ -5,9 +5,12 @@ inputs:
   token:
     description: "Github token"
     required: true
-  repo:
+  src_repo:
     description: "Source repo to clone from"
     required: true
+  dest_repo:
+    description: "Destination repo to clone to, default is this repo"
+    required: false
   target:
     description: "Target for new tags/releases in this repo"
     default: ""

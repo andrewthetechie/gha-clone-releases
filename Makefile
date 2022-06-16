@@ -21,3 +21,6 @@ setup-pre-commit:
 
 build:
 	docker build --platform linux/amd64 -t gha-clone-releases -f Docker/Dockerfile .
+
+generate-inputs: ## Generate a dict of inputs from actions.yml into repo_manager/utils/__init__.py
+	./.github/scripts/replace_inputs.sh
