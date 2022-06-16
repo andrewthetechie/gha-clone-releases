@@ -100,3 +100,5 @@ jobs:
         with:
           commit_message: "ci: update actions dockerfile for dev"
           file_pattern: Dockerfile
+          skip_fetch: false
+          skip_checkout: false
