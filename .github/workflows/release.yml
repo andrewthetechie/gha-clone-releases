@@ -76,7 +76,7 @@ jobs:
     needs: update-dockerfile
     steps:
       - name: Clean Workspace
-        uses: AutoModality/action-clean@v1.1.0
+        uses: AutoModality/action-clean@v1.1.1
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
