@@ -99,7 +99,7 @@ class ReleaseWrapper:
 
 def exceeds_min_version(release_version: str, min_version: str):
     """Checks if a version exceeds a minimum version using packaging.version.parse"""
-    if min_version != "":
+    if min_version is not None:
         try:
             result = parse_version(release_version) > parse_version(min_version)
         except InvalidVersion as exc:
