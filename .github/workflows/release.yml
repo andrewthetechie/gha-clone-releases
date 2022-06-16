@@ -100,4 +100,3 @@ jobs:
         with:
           commit_message: "ci: update actions dockerfile for dev"
           file_pattern: Dockerfile
-          tagging_message: ${{ inputs.version }}
