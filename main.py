@@ -16,7 +16,10 @@ INPUTS = {
     "token": {"description": "Github token", "required": True},
     "src_repo": {"description": "Source repo to clone from", "required": True},
     "dest_repo": {"description": "Destination repo to clone to, default is this repo", "required": False},
-    "target": {"description": "Target for new tags/releases in this repo", "default": ""},
+    "target": {
+        "description": "Target for new tags/releases in this repo. If not set, will use the default branch",
+        "default": "",
+    },
     "skip_draft": {"description": "Skip draft releases", "default": False},
     "skip_prerelease": {"description": "Skip Prereleases", "default": False},
     "limit": {
@@ -45,7 +48,7 @@ def get_inputs() -> Dict[str, Any]:
     for input_name, input_config in INPUTS.items():
         this_input_value = actions_toolkit.get_input(
             input_name,
-            required=input_config.get("required", input_config.get("default", None) == None),
+            required=input_config.get("required", input_config.get("default", None) is None),
         )
         parsed_inputs[input_name] = this_input_value if this_input_value != "" else None
         # set defaults from actions.yaml if not running in github, this is for local testing
@@ -82,7 +85,7 @@ def get_inputs() -> Dict[str, Any]:
         os.environ.get("GITHUB_REPOSITORY") if parsed_inputs["dest_repo"] is None else parsed_inputs["dest_repo"]
     )
     if parsed_inputs["dest_repo"] is None:
-        actions_toolkit.set_failed(f"Dest repo is none, set either INPUT_DEST_REPO or GITHUB_REPOSITORY")
+        actions_toolkit.set_failed("Dest repo is none, set either INPUT_DEST_REPO or GITHUB_REPOSITORY")
     return parsed_inputs
 
 
@@ -146,7 +149,7 @@ def main():
     skipped = 0
     for count, release in enumerate(get_missing_releases(src_releases, this_releases, inputs["min_version"])):
         if count >= (inputs["limit"] + skipped) and inputs["limit"] != 0:
-            actions_toolkit.debug(f"Hit limit")
+            actions_toolkit.debug("Hit limit")
             break
         if inputs["skip_draft"] and release.draft:
             actions_toolkit.debug(f"Skipping {release.tag_name} due to skip_draft")
@@ -162,13 +165,14 @@ def main():
             )
             continue
         actions_toolkit.info(f"Adding {release.tag_name} to {inputs['dest_repo']}")
+        target = this_repo.default_branch if inputs["target"] is None else inputs["target"]
         try:
             this_repo.create_git_release(
                 release.tag_name,
                 release.title,
                 release.body,
                 release.prerelease,
-                target_commitish=inputs["target"],
+                target_commitish=target,
             )
             added_releases.append(release.tag_name)
         except GithubException as exc:

@@ -12,7 +12,7 @@ inputs:
     description: "Destination repo to clone to, default is this repo"
     required: false
   target:
-    description: "Target for new tags/releases in this repo"
+    description: "Target for new tags/releases in this repo. If not set, will use the default branch"
     default: ""
   skip_draft:
     description: "Skip draft releases"
