@@ -45,7 +45,7 @@ jobs:
 | token | Github token | `true` |  |
 | src_repo | Source repo to clone from | `true` |  |
 | dest_repo | Destination repo to clone to, default is this repo | `false` |  |
-| target | Target for new tags/releases in this repo | `false` |  |
+| target | Target for new tags/releases in this repo. If not set, will use the default branch | `false` |  |
 | skip_draft | Skip draft releases | `false` | false |
 | skip_prerelease | Skip Prereleases | `false` | false |
 | limit | A limit of how many releases to add on a single run. Good for not overwhelming CI systems | `false` | 0 |
