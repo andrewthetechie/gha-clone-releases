@@ -9,11 +9,6 @@ on:
     - cron: '0 0 * * 1'
   workflow_dispatch:
 jobs:
-  cancel:
-    name: Cancel Previous Runs
-    runs-on: ubuntu-latest
-    steps:
-
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
