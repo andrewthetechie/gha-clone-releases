@@ -34,3 +34,6 @@ install-action-lint: ## Install actionlint (used in pre-commit) using go install
 actionlint: ## run actionlint with our ignores
 	# https://github.com/rhysd/actionlint/issues/152
 	actionlint -ignore 'property \".+\" is not defined in object type'
+
+test: ## Run our unit tests
+	pytest
