@@ -35,7 +35,8 @@ jobs:
         uses: docker/metadata-action@v4
         id: meta
         with:
-          images: ${{ env.GITHUB_REPOSITORY }}
+          images: |
+            ${{ env.GITHUB_REPOSITORY }}
           tags: |
             type=raw,value=${{ inputs.version }}
             # minimal (short sha)
