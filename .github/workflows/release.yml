@@ -36,7 +36,7 @@ jobs:
         id: meta
         with:
           images: |
-            ${{ env.GITHUB_REPOSITORY }}
+            ${{ github.repository }}
           tags: |
             type=raw,value=${{ inputs.version }}
             # minimal (short sha)
