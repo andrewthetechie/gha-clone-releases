@@ -1,7 +1,5 @@
 import os
 from typing import Any
-from typing import Dict
-from typing import List
 
 from actions_toolkit import core as actions_toolkit
 from github import Github
@@ -38,7 +36,7 @@ INPUTS = {
 ###END_INPUT_AUTOMATION###
 
 
-def get_inputs() -> Dict[str, Any]:
+def get_inputs() -> dict[str, Any]:
     """Get inputs from our workflow, valudate them, and return as a dict
     Reads inputs from actions.yaml. Non required inputs that are not set are returned as None
     Returns:
@@ -113,7 +111,7 @@ def exceeds_min_version(release_version: str, min_version: str):
     return True
 
 
-def get_missing_releases(source_releases, dest_releases, min_version) -> List[GitRelease]:
+def get_missing_releases(source_releases, dest_releases, min_version) -> list[GitRelease]:
     """Compares two sets of releases and returns a list of releases in the source that are not in the destination"""
 
     def sort_key(release: GitRelease):
