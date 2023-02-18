@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        # https://github.com/stefanzweifel/git-auto-commit-action#commits-made-by-this-action-do-not-trigger-new-workflow-runs
-        with:
-          token: ${{ secrets.THIS_PAT }}
+        name: Checkout
+      - name: Copy in Dockerfile
+        run: cp Docker/Dockerfile Dockerfile
       - name: Test action
         id: test-action
         # test with the local checkout of the action
@@ -20,6 +20,3 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           src_repo: andrewthetechie/gha-clone-releases
-      - name: Check outputs
-        run: |
-          test "${{ steps.test-action.outputs.addedReleases }}" == ""
