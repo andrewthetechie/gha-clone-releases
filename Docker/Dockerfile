@@ -13,7 +13,7 @@ COPY main.py ./
 # install requirements
 RUN pip install -r requirements.txt
 # pyinstaller package the app
-RUN python -OO -m PyInstaller -F main.py --name clone-releases
+RUN python -OO -m PyInstaller -F main.py --name clone-releases --hidden-import _cffi_backend
 # static link the repo-manager binary
 RUN cd ./dist && \
     staticx clone-releases clone-releases-static
