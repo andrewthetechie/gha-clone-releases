@@ -5,10 +5,10 @@
 [![Actions Status](https://github.com/andrewthetechie/gha-clone-releases/workflows/Integration%20Test/badge.svg)](https://github.com/andrewthetechie/gha-clone-releases/actions)
 
 <!-- action-docs-description -->
-
 ## Description
 
 Clone the releases in one repo to this one
+
 
 <!-- action-docs-description -->
 
@@ -38,39 +38,41 @@ jobs:
 ```
 
 <!-- action-docs-inputs -->
-
 ## Inputs
 
-| parameter       | description                                                                               | required | default |
-| --------------- | ----------------------------------------------------------------------------------------- | -------- | ------- |
-| token           | Github token                                                                              | `true`   |         |
-| src_repo        | Source repo to clone from                                                                 | `true`   |         |
-| dest_repo       | Destination repo to clone to, default is this repo                                        | `false`  |         |
-| target          | Target for new tags/releases in this repo. If not set, will use the default branch        | `false`  |         |
-| skip_draft      | Skip draft releases                                                                       | `false`  | false   |
-| skip_prerelease | Skip Prereleases                                                                          | `false`  | false   |
-| limit           | A limit of how many releases to add on a single run. Good for not overwhelming CI systems | `false`  | 0       |
-| dry_run         | If true, just output what releases would have been made but do not make releases          | `false`  | false   |
-| min_version     | If set, we will ignore any releases from the source repo that are less than min_version   | `false`  |         |
+| parameter | description | required | default |
+| - | - | - | - |
+| token | Github token | `true` |  |
+| src_repo | Source repo to clone from | `true` |  |
+| dest_repo | Destination repo to clone to, default is this repo | `false` |  |
+| target | Target for new tags/releases in this repo. If not set, will use the default branch | `false` |  |
+| skip_draft | Skip draft releases | `false` | false |
+| skip_prerelease | Skip Prereleases | `false` | false |
+| limit | A limit of how many releases to add on a single run. Good for not overwhelming CI systems | `false` | 0 |
+| dry_run | If true, just output what releases would have been made but do not make releases | `false` | false |
+| min_version | If set, we will ignore any releases from the source repo that are less than min_version | `false` |  |
+
+
 
 <!-- action-docs-inputs -->
 
 <!-- action-docs-outputs -->
-
 ## Outputs
 
-| parameter            | description                                      |
-| -------------------- | ------------------------------------------------ |
-| addedReleases        | Comma separated list of all the releases created |
-| addedReleasesCount   | Count of releases added                          |
-| skippedReleasesCount | Count of releases skipped                        |
+| parameter | description |
+| - | - |
+| addedReleases | Comma separated list of all the releases created |
+| addedReleasesCount | Count of releases added |
+| skippedReleasesCount | Count of releases skipped |
+
+
 
 <!-- action-docs-outputs -->
 
 <!-- action-docs-runs -->
-
 ## Runs
 
 This action is a `docker` action.
+
 
 <!-- action-docs-runs -->
