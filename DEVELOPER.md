@@ -1,6 +1,7 @@
 # Local Requirements
-* Docker
-* python 3.9.2 environment (makefile can use pyenv to set this up for you, make setup-dev)
+
+- Docker
+- python 3.9.2 environment (makefile can use pyenv to set this up for you, make setup-dev)
 
 # Building locally
 

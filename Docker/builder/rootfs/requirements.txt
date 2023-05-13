@@ -1,3 +1,0 @@
-actions-toolkit==0.1.14
-pygithub==1.55
-packaging
