@@ -166,10 +166,11 @@ def main():
         target = this_repo.default_branch if inputs["target"] is None else inputs["target"]
         try:
             this_repo.create_git_release(
-                release.tag_name,
-                release.title,
-                release.body,
-                release.prerelease,
+                tag=release.tag_name,
+                name=release.title,
+                message=release.body,
+                draft=release.draft,
+                prerelease=release.prerelease,
                 target_commitish=target,
             )
             added_releases.append(release.tag_name)
