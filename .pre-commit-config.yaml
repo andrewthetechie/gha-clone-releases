@@ -13,21 +13,21 @@ repos:
   - id: reorder-python-imports
     args: [--application-directories, '.:src', --py39-plus]
 - repo: https://github.com/psf/black
-  rev: 23.1.0
+  rev: 23.3.0
   hooks:
   - id: black
     args: [--line-length=119, --target-version=py39]
 - repo: https://github.com/asottile/pyupgrade
-  rev: v3.3.1
+  rev: v3.4.0
   hooks:
   - id: pyupgrade
     args: [--py37-plus]
 - repo: https://github.com/jorisroovers/gitlint
-  rev: v0.19.0dev
+  rev: v0.19.1
   hooks:
   - id: gitlint
 - repo: https://github.com/PyCQA/bandit
-  rev: 1.7.4
+  rev: 1.7.5
   hooks:
   - id: bandit
     args: ["--exclude", ".tox,.eggs,tests"]
@@ -39,7 +39,7 @@ repos:
       language: system
       pass_filenames: false
 - repo: https://github.com/rhysd/actionlint
-  rev: v1.6.23
+  rev: v1.6.24
   hooks:
     - id: actionlint
 - repo: local
