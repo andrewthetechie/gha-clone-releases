@@ -20,7 +20,7 @@ RUN python -OO -m PyInstaller -F gha_clone_releases/main.py --name clone-release
 # static link the repo-manager binary
 RUN cd ./dist && \
     staticx -l $(ldconfig -p| grep libgcc_s.so.1 | awk -F "=>" '{print $2}' | tr -d " ") --strip clone-releases clone-releases-static && \
-    strip -s -R .comment -R .gnu.version --strip-unneeded
+    strip -s -R .comment -R .gnu.version --strip-unneeded clone-releases-static
 # will be copied over to the scratch container, pyinstaller needs a /tmp to exist
 RUN mkdir /app/tmp
 
