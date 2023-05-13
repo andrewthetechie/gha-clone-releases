@@ -48,6 +48,7 @@ jobs:
 | target | Target for new tags/releases in this repo. If not set, will use the default branch | `false` |  |
 | skip_draft | Skip draft releases | `false` | false |
 | skip_prerelease | Skip Prereleases | `false` | false |
+| copy_assets | If true, copy assets from source repo releases to the newly created releases | `false` | false |
 | limit | A limit of how many releases to add on a single run. Good for not overwhelming CI systems | `false` | 0 |
 | dry_run | If true, just output what releases would have been made but do not make releases | `false` | false |
 | min_version | If set, we will ignore any releases from the source repo that are less than min_version | `false` |  |
