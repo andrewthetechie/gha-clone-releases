@@ -20,6 +20,9 @@ inputs:
   skip_prerelease:
     description: "Skip Prereleases"
     default: False
+  copy_assets:
+    description: "If true, copy assets from source repo releases to the newly created releases"
+    default: False
   limit:
     description: "A limit of how many releases to add on a single run. Good for not overwhelming CI systems"
     default: 0
