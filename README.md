@@ -69,7 +69,6 @@ jobs:
 
 <!-- action-docs-outputs -->
 
-
 <!-- action-docs-runs -->
 ## Runs
 
