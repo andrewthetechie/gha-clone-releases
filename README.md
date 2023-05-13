@@ -9,6 +9,7 @@
 
 Clone the releases in one repo to this one
 
+
 <!-- action-docs-description -->
 
 This github action can clone releases from a source repo to your repo. This is useful if you are using a repo to build container
@@ -52,6 +53,8 @@ jobs:
 | dry_run | If true, just output what releases would have been made but do not make releases | `false` | false |
 | min_version | If set, we will ignore any releases from the source repo that are less than min_version | `false` |  |
 
+
+
 <!-- action-docs-inputs -->
 
 <!-- action-docs-outputs -->
@@ -63,12 +66,15 @@ jobs:
 | addedReleasesCount | Count of releases added |
 | skippedReleasesCount | Count of releases skipped |
 
+
+
 <!-- action-docs-outputs -->
 
 <!-- action-docs-runs -->
 ## Runs
 
 This action is a `docker` action.
+
 
 <!-- action-docs-runs -->
 
