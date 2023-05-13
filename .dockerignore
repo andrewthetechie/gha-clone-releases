@@ -109,5 +109,6 @@ action.yml
 tests/
 
 Makefile
+DEVELOPER.md
 LICENSE
 .pre-commit-config.yaml
