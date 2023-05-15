@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.6.1](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.6.0...v1.6.1) (2023-05-15)
+
+
+### Bug Fixes
+
+* add more debugging output ([f089b81](https://github.com/andrewthetechie/gha-clone-releases/commit/f089b813bd82ce031013395c583ff11996502bec))
+
+
+### Documentation
+
+* add andrewthetechie as a contributor for code, doc, and 2 more ([#21](https://github.com/andrewthetechie/gha-clone-releases/issues/21)) ([78d29fb](https://github.com/andrewthetechie/gha-clone-releases/commit/78d29fb84dcbb3586e905e224729924064c05e84))
+* automated doc update ([a1b1ffa](https://github.com/andrewthetechie/gha-clone-releases/commit/a1b1ffa326fa2dc5241d427e1f78287b86fac389))
+
 ## [1.6.0](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.5.0...v1.6.0) (2023-05-13)
 
 
