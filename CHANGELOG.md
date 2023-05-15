@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.2](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.6.1...v1.6.2) (2023-05-15)
+
+
+### Bug Fixes
+
+* more debug info ([72e5057](https://github.com/andrewthetechie/gha-clone-releases/commit/72e5057da2e4d331ac73018374bcad64e0de1111))
+
 ## [1.6.1](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.6.0...v1.6.1) (2023-05-15)
 
 
