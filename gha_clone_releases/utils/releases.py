@@ -37,8 +37,11 @@ def get_missing_releases(source_releases, dest_releases, min_version) -> list[Gi
     source_releases = {
         ReleaseWrapper(release) for release in source_releases if exceeds_min_version(release.title, min_version)
     }
+    actions_toolkit.debug(f"Source releases: {source_releases}")
     dest_releases = {ReleaseWrapper(release) for release in dest_releases}
+    actions_toolkit.debug(f"Dest releases: {dest_releases}")
 
     releases = [release.release for release in list(source_releases - dest_releases)]
     releases.sort(key=lambda release: release.published_at, reverse=True)
+    actions_toolkit.debug(f"Releases to add: {releases}")
     return releases

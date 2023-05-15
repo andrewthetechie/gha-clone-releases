@@ -111,6 +111,15 @@ def main():
     actions_toolkit.debug(f"{inputs['src_repo']} has {src_releases.totalCount} releases")
     actions_toolkit.debug(f"{inputs['dest_repo']} has {this_releases.totalCount} releases")
 
+    # Echo inputs for debugging
+    actions_toolkit.debug(f"Src: {inputs['src_repo']}")
+    actions_toolkit.debug(f"Dest: {inputs['dest_repo']}")
+    actions_toolkit.debug(f"Target: {inputs['target']}")
+    actions_toolkit.debug(f"Min Version: {inputs['min_version']}")
+    actions_toolkit.debug(f"Skip Draft: {inputs['skip_draft']}")
+    actions_toolkit.debug(f"Skip Prerelease: {inputs['skip_prerelease']}")
+    actions_toolkit.debug(f"Copy Assets: {inputs['copy_assets']}")
+    actions_toolkit.debug(f"Dry Run: {inputs['dry_run']}")
     actions_toolkit.debug(f"Limit: {inputs['limit']}")
 
     skipped = 0
