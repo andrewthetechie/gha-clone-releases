@@ -40,12 +40,24 @@ def get_missing_releases(source_releases, dest_releases, min_version) -> list[Gi
     actions_toolkit.debug(f"Source releases: {source_releases}")
     actions_toolkit.debug(f"Dest releases: {dest_releases}")
 
-    source_releases = {
-        ReleaseWrapper(release) for release in source_releases if exceeds_min_version(release.title, min_version)
-    }
-    dest_releases = {ReleaseWrapper(release) for release in dest_releases}
+    wrapped_sources = []
+    for release in source_releases:
+        if exceeds_min_version(release.title, min_version):
+            actions_toolkit.debug(
+                f"Source release: {release.title} is greater than {min_version}, will copy to destination"
+            )
+            wrapped_sources.append(ReleaseWrapper(release))
+        else:
+            actions_toolkit.debug(
+                f"Source release: {release.title} is less than {min_version}, will not copy to destination"
+            )
 
-    releases = [release.release for release in list(source_releases - dest_releases)]
+    wrapped_dest_releases = []
+    for release in dest_releases:
+        actions_toolkit.debug(f"Dest release: {release.title}")
+        wrapped_dest_releases.append(ReleaseWrapper(release))
+
+    releases = [release.release for release in list(wrapped_sources - wrapped_dest_releases)]
     releases.sort(key=lambda release: release.published_at, reverse=True)
     actions_toolkit.debug(f"Releases to add: {releases}")
     return releases
