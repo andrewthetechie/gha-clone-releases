@@ -14,6 +14,9 @@ class ReleaseWrapper:
     def __hash__(self):
         return hash(self.release.title)
 
+    def __str__(self):
+        return f"{self.release.title} - {self.release.published_at} - {self.release.tag_name}"
+
 
 def exceeds_min_version(release_version: str, min_version: str):
     """Checks if a version exceeds a minimum version using packaging.version.parse"""

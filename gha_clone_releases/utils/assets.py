@@ -1,11 +1,13 @@
 import os
 import requests
 import tempfile
+from actions_toolkit import core as actions_toolkit
 
 
 def download_asset(asset_name: str, asset_url: str) -> str:
     """Downloads an asset from a release and returns the path to the downloaded file"""
     response = requests.get(asset_url, stream=True, timeout=(60, 300))
+    actions_toolkit.debug(f"{asset_url} Response status code: {response.status_code} - {response.text}")
     response.raise_for_status()  # Check for any errors during the request
 
     # Create a temporary directory to store the downloaded file
@@ -20,4 +22,5 @@ def download_asset(asset_name: str, asset_url: str) -> str:
             if chunk:  # Filter out any potential empty chunks
                 fh.write(chunk)
 
+    actions_toolkit.debug(f"{asset_url} downloaded to {file_path}")
     return file_path

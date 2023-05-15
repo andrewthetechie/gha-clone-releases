@@ -142,6 +142,7 @@ def main():
             continue
         actions_toolkit.info(f"Adding {release.tag_name} to {inputs['dest_repo']}")
         target = this_repo.default_branch if inputs["target"] is None else inputs["target"]
+        actions_toolkit.debug(f"Target branch is {target}")
         try:
             new_release = this_repo.create_git_release(
                 tag=release.tag_name,
@@ -155,6 +156,7 @@ def main():
         except GithubException as exc:
             actions_toolkit.error(f"Error while adding a release for {release.tag_name}. {exc}")
         if inputs["copy_assets"]:
+            actions_toolkit.debug(f"Copying assets for {release.tag_name}. {release.assets}")
             for asset in release.assets:
                 try:
                     this_asset = download_asset(asset_name=asset.name, asset_url=asset.browser_download_url)
