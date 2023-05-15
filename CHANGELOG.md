@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.3](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.6.2...v1.6.3) (2023-05-15)
+
+
+### Bug Fixes
+
+* adjust debug text to be more useful ([2b79026](https://github.com/andrewthetechie/gha-clone-releases/commit/2b79026f3f4000fbf31c8c2824fa867f6fd65ed8))
+
 ## [1.6.2](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.6.1...v1.6.2) (2023-05-15)
 
 
