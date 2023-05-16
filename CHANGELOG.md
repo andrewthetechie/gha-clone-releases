@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.6.5...v1.7.0) (2023-05-16)
+
+
+### Features
+
+* support auth for asset download ([#29](https://github.com/andrewthetechie/gha-clone-releases/issues/29)) ([72e76fa](https://github.com/andrewthetechie/gha-clone-releases/commit/72e76fa103916de8a451af81b5dbd81594b5b213))
+
 ## [1.6.5](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.6.4...v1.6.5) (2023-05-15)
 
 
