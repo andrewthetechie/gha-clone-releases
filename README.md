@@ -12,7 +12,6 @@
 
 Clone the releases in one repo to this one
 
-
 <!-- action-docs-description -->
 
 This github action can clone releases from a source repo to your repo. This is useful if you are using a repo to build container
@@ -20,24 +19,39 @@ images for an upstream container. You can run this action on a cron schedule to 
 
 ## Usage
 
-On each run, it will find all releases in `repo` and the repo you are running your action on, find any releases that exist in `repo` and not in your repo, and then will create those releases in your repo.
+On each run, it will find all releases in `src_repo` and the `dest_repo`, find any releases that exist in `src_repo` and not in your `dest_repo`, and then will create those releases in `dest_repo`.
+
+If you don't define a `dest_repo`, it will use the repo the action is running on as a destination.
+
+### Private Repos
+
+To use this repo with a private repo, you must use a Personal Access Token with access to both the `src_repo` and `dest_repo` as your `token`.
+
+### Github Enterprise
+
+Currently, this action does not support Github Enterprise. If you would like to see support for Github Enterprise, [please vote on this issue](https://github.com/andrewthetechie/gha-clone-releases/issues/32).
 
 ### Example workflow
+
+Here is an example usage of this workflow. If you set this up, every time it runs it would create releases in your repo that mirror the releases in andrewthetechie/testrepo.
 
 ```yaml
 name: Clone
 on:
+  # kick off the job on demand
+  workflow_dispatch:
+  # and run on a schedule every 12 hours
+  schedule:
+    - cron: "* */12 * * *"
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Run action
-        # Put your action repo here
         uses: andrewthetechie/gha-clone-releases@v1
-        # Put an example of your mandatory inputs here
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          repo: andrewthetechie/andrewthetechie:
+          src_repo: andrewthetechie/test-repo
 ```
 
 <!-- action-docs-inputs -->
@@ -56,8 +70,6 @@ jobs:
 | dry_run | If true, just output what releases would have been made but do not make releases | `false` | false |
 | min_version | If set, we will ignore any releases from the source repo that are less than min_version | `false` |  |
 
-
-
 <!-- action-docs-inputs -->
 
 <!-- action-docs-outputs -->
@@ -69,15 +81,12 @@ jobs:
 | addedReleasesCount | Count of releases added |
 | skippedReleasesCount | Count of releases skipped |
 
-
-
 <!-- action-docs-outputs -->
 
 <!-- action-docs-runs -->
 ## Runs
 
 This action is a `docker` action.
-
 
 <!-- action-docs-runs -->
 
