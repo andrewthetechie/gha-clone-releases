@@ -159,7 +159,7 @@ def main():
             actions_toolkit.debug(f"Copying assets for {release.tag_name}. {release.assets}")
             for asset in release.assets:
                 try:
-                    this_asset = download_asset(asset_name=asset.name, asset_url=asset.browser_download_url)
+                    this_asset = download_asset(asset_name=asset.name, asset_url=asset.url, token=inputs["token"])
                     new_release.upload_asset(this_asset)
                 except Exception as exc:
                     actions_toolkit.error(f"Error while copying asset {asset.name}. {exc}")
