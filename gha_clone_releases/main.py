@@ -13,7 +13,17 @@ from gha_clone_releases.utils.releases import get_missing_releases
 INPUTS = {
     "token": {"description": "Github token", "required": True},
     "src_repo": {"description": "Source repo to clone from", "required": True},
+    "src_repo_github_api_url": {
+        "description": "API repo for the src_repo. Defaults to Github. Set this if using GHE",
+        "required": False,
+        "default": "https://api.github.com",
+    },
     "dest_repo": {"description": "Destination repo to clone to, default is this repo", "required": False},
+    "dest_repo_github_api_url": {
+        "description": "API repo for the dest_repo. Defaults to Github. Set this if using GHE",
+        "required": False,
+        "default": "https://api.github.com",
+    },
     "target": {
         "description": "Target for new tags/releases in this repo. If not set, will use the default branch",
         "default": "",
@@ -102,10 +112,15 @@ def main():
     """
     inputs = get_inputs()
 
-    g = Github(inputs["token"])
-    src_releases = g.get_repo(inputs["src_repo"]).get_releases()
+    src_github = Github(inputs["token"], base_url=inputs["src_repo_github_api_url"])
+    dest_github = (
+        src_github
+        if inputs["dest_repo_github_api_url"] == inputs["src_repo_github_api_url"]
+        else Github(inputs["token"], base_url=inputs["dest_repo_github_api_url"])
+    )
+    src_releases = src_github.get_repo(inputs["src_repo"]).get_releases()
 
-    this_repo = g.get_repo(inputs["dest_repo"])
+    this_repo = dest_github.get_repo(inputs["dest_repo"])
     this_releases = this_repo.get_releases()
     added_releases = []
     actions_toolkit.debug(f"{inputs['src_repo']} has {src_releases.totalCount} releases")

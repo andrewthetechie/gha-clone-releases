@@ -8,9 +8,17 @@ inputs:
   src_repo:
     description: "Source repo to clone from"
     required: true
+  src_repo_github_api_url:
+    description: "API repo for the src_repo. Defaults to Github. Set this if using GHE"
+    required: false
+    default: "https://api.github.com"
   dest_repo:
     description: "Destination repo to clone to, default is this repo"
     required: false
+  dest_repo_github_api_url:
+    description: "API repo for the dest_repo. Defaults to Github. Set this if using GHE"
+    required: false
+    default: "https://api.github.com"
   target:
     description: "Target for new tags/releases in this repo. If not set, will use the default branch"
     default: ""
