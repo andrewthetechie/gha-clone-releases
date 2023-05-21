@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.8.0](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.7.0...v1.8.0) (2023-05-21)
+
+
+### Features
+
+* support Github Enterprise ([#40](https://github.com/andrewthetechie/gha-clone-releases/issues/40)) ([3eb6682](https://github.com/andrewthetechie/gha-clone-releases/commit/3eb6682f982d9964af35d61ab43ecc46eaf579bf))
+
+
+### Bug Fixes
+
+* **poetry:** update poetry to 1.5.0 ([#39](https://github.com/andrewthetechie/gha-clone-releases/issues/39)) ([6726037](https://github.com/andrewthetechie/gha-clone-releases/commit/6726037a65529796f3abd944aef1406113924013))
+
+
+### Documentation
+
+* add jrbe228 as a contributor for bug, and ideas ([#31](https://github.com/andrewthetechie/gha-clone-releases/issues/31)) ([b0ab4ef](https://github.com/andrewthetechie/gha-clone-releases/commit/b0ab4ef2e5c6a86a4a276ca58ddf1628a0fdaf7e))
+* automated doc update ([6cc82f9](https://github.com/andrewthetechie/gha-clone-releases/commit/6cc82f9c9d2110ac34ea510d4d926adce8ba9b7f))
+
 ## [1.7.0](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.6.5...v1.7.0) (2023-05-16)
 
 
