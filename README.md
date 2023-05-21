@@ -62,7 +62,9 @@ jobs:
 | - | - | - | - |
 | token | Github token | `true` |  |
 | src_repo | Source repo to clone from | `true` |  |
+| src_repo_github_api_url | API repo for the src_repo. Defaults to Github. Set this if using GHE | `false` | https://api.github.com |
 | dest_repo | Destination repo to clone to, default is this repo | `false` |  |
+| dest_repo_github_api_url | API repo for the dest_repo. Defaults to Github. Set this if using GHE | `false` | https://api.github.com |
 | target | Target for new tags/releases in this repo. If not set, will use the default branch | `false` |  |
 | skip_draft | Skip draft releases | `false` | false |
 | skip_prerelease | Skip Prereleases | `false` | false |
