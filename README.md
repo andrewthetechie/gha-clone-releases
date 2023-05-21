@@ -30,7 +30,7 @@ To use this repo with a private repo, you must use a Personal Access Token with 
 
 ### Github Enterprise
 
-Currently, this action does not support Github Enterprise. If you would like to see support for Github Enterprise, [please vote on this issue](https://github.com/andrewthetechie/gha-clone-releases/issues/32).
+This action supports setting the Github API URL for both the `src_repo` and `dest_repo` separately, allowing you to clone releases between GHE and Github, or to use this action with GHE based repos.
 
 ### Example workflow
 
