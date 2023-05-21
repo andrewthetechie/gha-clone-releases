@@ -49,7 +49,7 @@ outputs:
     description: "Count of releases skipped"
 runs:
   using: "docker"
-  image: "docker://ghcr.io/andrewthetechie/gha-clone-releases:v1.7.0" # x-release-please-version
+  image: "docker://ghcr.io/andrewthetechie/gha-clone-releases:v1.8.0" # x-release-please-version
 branding:
   icon: "copy"
   color: "blue"
