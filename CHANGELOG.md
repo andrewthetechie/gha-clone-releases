@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.1](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.8.0...v1.8.1) (2023-10-06)
+
+
+### Bug Fixes
+
+* pin to bullseye ([257aa64](https://github.com/andrewthetechie/gha-clone-releases/commit/257aa6487d6fe82375fa337e15dbed8ac3b77349))
+
+
+### Documentation
+
+* update docs on GHE ([dc1b256](https://github.com/andrewthetechie/gha-clone-releases/commit/dc1b256dc83f03234667f29c7bdb2eba03b3bde7))
+
 ## [1.8.0](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.7.0...v1.8.0) (2023-05-21)
 
 
