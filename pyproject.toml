@@ -28,7 +28,7 @@ reorder-python-imports = "^3.10.0"
 pytest-xdist = "^3.3.1"
 ruff = ">=0.0.261,<0.0.293"
 pre-commit = "^3.4.0"
-pyupgrade = "^3.10.1"
+pyupgrade = "^3.15.0"
 pyflakes = "^3.1.0"
 black = "^23.9.1"
 
