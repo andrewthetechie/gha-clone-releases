@@ -5,6 +5,9 @@ inputs:
   token:
     description: "Github token"
     required: true
+  dest_token:
+    description: "Github token used for destination repo. If not set, token parameter is used"
+    required: false
   src_repo:
     description: "Source repo to clone from"
     required: true

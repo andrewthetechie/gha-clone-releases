@@ -12,6 +12,10 @@ from gha_clone_releases.utils.releases import get_missing_releases
 ###START_INPUT_AUTOMATION###
 INPUTS = {
     "token": {"description": "Github token", "required": True},
+    "dest_token": {
+        "description": "Github token used for destination repo. If not set, token parameter is used",
+        "required": False
+      },
     "src_repo": {"description": "Source repo to clone from", "required": True},
     "src_repo_github_api_url": {
         "description": "API repo for the src_repo. Defaults to Github. Set this if using GHE",
@@ -116,7 +120,10 @@ def main():
     dest_github = (
         src_github
         if inputs["dest_repo_github_api_url"] == inputs["src_repo_github_api_url"]
-        else Github(inputs["token"], base_url=inputs["dest_repo_github_api_url"])
+        else Github(
+            inputs["dest_token"] if "dest_token" in inputs else inputs["token"],
+            base_url=inputs["dest_repo_github_api_url"]
+        )
     )
     src_releases = src_github.get_repo(inputs["src_repo"]).get_releases()
 

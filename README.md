@@ -61,6 +61,7 @@ jobs:
 | parameter | description | required | default |
 | - | - | - | - |
 | token | Github token | `true` |  |
+| dest_token | Github token used for destination repo. If not set, `token` parameter is used. | `false` |  |
 | src_repo | Source repo to clone from | `true` |  |
 | src_repo_github_api_url | API repo for the src_repo. Defaults to Github. Set this if using GHE | `false` | https://api.github.com |
 | dest_repo | Destination repo to clone to, default is this repo | `false` |  |
