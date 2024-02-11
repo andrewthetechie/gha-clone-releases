@@ -1,6 +1,6 @@
 # gha-clone-releases
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Action Template](https://img.shields.io/badge/Action%20Template-Python%20Container%20Action-blue.svg?colorA=24292e&colorB=0366d6&style=flat&longCache=true&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAM6wAADOsB5dZE0gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAERSURBVCiRhZG/SsMxFEZPfsVJ61jbxaF0cRQRcRJ9hlYn30IHN/+9iquDCOIsblIrOjqKgy5aKoJQj4O3EEtbPwhJbr6Te28CmdSKeqzeqr0YbfVIrTBKakvtOl5dtTkK+v4HfA9PEyBFCY9AGVgCBLaBp1jPAyfAJ/AAdIEG0dNAiyP7+K1qIfMdonZic6+WJoBJvQlvuwDqcXadUuqPA1NKAlexbRTAIMvMOCjTbMwl1LtI/6KWJ5Q6rT6Ht1MA58AX8Apcqqt5r2qhrgAXQC3CZ6i1+KMd9TRu3MvA3aH/fFPnBodb6oe6HM8+lYHrGdRXW8M9bMZtPXUji69lmf5Cmamq7quNLFZXD9Rq7v0Bpc1o/tp0fisAAAAASUVORK5CYII=)](https://github.com/andrewthetechie/gha-clone-releases)
@@ -108,6 +108,7 @@ This action is a `docker` action.
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/andrewthetechie"><img src="https://avatars.githubusercontent.com/u/1377314?v=4?s=100" width="100px;" alt="Andrew"/><br /><sub><b>Andrew</b></sub></a><br /><a href="https://github.com/andrewthetechie/gha-clone-releases/commits?author=andrewthetechie" title="Code">💻</a> <a href="https://github.com/andrewthetechie/gha-clone-releases/commits?author=andrewthetechie" title="Documentation">📖</a> <a href="#ideas-andrewthetechie" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/andrewthetechie/gha-clone-releases/commits?author=andrewthetechie" title="Tests">⚠️</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/jrbe228"><img src="https://avatars.githubusercontent.com/u/88258057?v=4?s=100" width="100px;" alt="jrbe228"/><br /><sub><b>jrbe228</b></sub></a><br /><a href="https://github.com/andrewthetechie/gha-clone-releases/issues?q=author%3Ajrbe228" title="Bug reports">🐛</a> <a href="#ideas-jrbe228" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sebastienrospars"><img src="https://avatars.githubusercontent.com/u/22962128?v=4?s=100" width="100px;" alt="sebastienrospars"/><br /><sub><b>sebastienrospars</b></sub></a><br /><a href="https://github.com/andrewthetechie/gha-clone-releases/commits?author=sebastienrospars" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
