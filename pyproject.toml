@@ -13,7 +13,7 @@ clone-releases = "gha_clone_releases.main:main"
 [tool.poetry.dependencies]
 python = "^3.11"
 actions-toolkit = "^0.1.15"
-pygithub = "^1.59.1"
+pygithub = "^2.2.0"
 packaging = "^23.1"
 
 
