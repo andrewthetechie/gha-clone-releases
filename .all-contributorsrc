@@ -27,6 +27,15 @@
         "bug",
         "ideas"
       ]
+    },
+    {
+      "login": "sebastienrospars",
+      "name": "sebastienrospars",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22962128?v=4",
+      "profile": "https://github.com/sebastienrospars",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -34,5 +43,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "projectName": "gha-clone-releases",
-  "projectOwner": "andrewthetechie"
+  "projectOwner": "andrewthetechie",
+  "commitType": "docs"
 }
