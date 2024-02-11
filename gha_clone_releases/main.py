@@ -12,6 +12,10 @@ from gha_clone_releases.utils.releases import get_missing_releases
 ###START_INPUT_AUTOMATION###
 INPUTS = {
     "token": {"description": "Github token", "required": True},
+    "dest_token": {
+        "description": "Github token used for destination repo. If not set, token parameter is used",
+        "required": False,
+    },
     "src_repo": {"description": "Source repo to clone from", "required": True},
     "src_repo_github_api_url": {
         "description": "API repo for the src_repo. Defaults to Github. Set this if using GHE",
@@ -100,6 +104,9 @@ def get_inputs() -> dict[str, Any]:
     )
     parsed_inputs["dest_repo"] = (
         os.environ.get("GITHUB_REPOSITORY") if parsed_inputs["dest_repo"] is None else parsed_inputs["dest_repo"]
+    )
+    parsed_inputs["dest_token"] = (
+        parsed_inputs["token"] if parsed_inputs["dest_token"] is None else parsed_inputs["dest_token"]
     )
     if parsed_inputs["dest_repo"] is None:
         actions_toolkit.set_failed("Dest repo is none, set either INPUT_DEST_REPO or GITHUB_REPOSITORY")
