@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gha-clone-releases"
-version = "1.8.1"
+version = "1.9.0"
 description = "Github Action to clone releases from one repo to another"
 authors = ["Andrew Herrington <andrew.the.techie@gmail.com>"]
 license = "MIT"
