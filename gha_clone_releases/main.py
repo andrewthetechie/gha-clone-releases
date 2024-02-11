@@ -123,7 +123,7 @@ def main():
     dest_github = (
         src_github
         if inputs["dest_repo_github_api_url"] == inputs["src_repo_github_api_url"]
-        else Github(inputs["token"], base_url=inputs["dest_repo_github_api_url"])
+        else Github(inputs["dest_token"], base_url=inputs["dest_repo_github_api_url"])
     )
     src_releases = src_github.get_repo(inputs["src_repo"]).get_releases()
 
