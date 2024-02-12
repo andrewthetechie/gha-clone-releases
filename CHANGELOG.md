@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.8.1...v1.9.0) (2024-02-11)
+
+
+### Features
+
+* support a separate token for destination  ([#185](https://github.com/andrewthetechie/gha-clone-releases/issues/185)) ([17454d6](https://github.com/andrewthetechie/gha-clone-releases/commit/17454d688fd0deeea68f7f07557c2b2eeefc13ca))
+
 ## [1.8.1](https://github.com/andrewthetechie/gha-clone-releases/compare/v1.8.0...v1.8.1) (2023-10-06)
 
 
