@@ -14,7 +14,7 @@ clone-releases = "gha_clone_releases.main:main"
 python = "^3.11"
 actions-toolkit = "^0.1.15"
 pygithub = "^2.3.0"
-packaging = "^23.2"
+packaging = "^24.0"
 
 
 [tool.poetry.group.dev.dependencies]
